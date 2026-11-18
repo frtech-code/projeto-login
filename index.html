@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FrTech | Acesso ao Sistema</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="container">
+        <header class="brand-header">
+            <h1>Fr<span>Tech</span></h1>
+        </header>
+
+        <div class="auth-card" id="auth-box">
+            
+            
+            <div class="tabs">
+                <button class="tab-btn active" id="tab-login" onclick="switchTab('login')">Entrar</button>
+                <button class="tab-btn" id="tab-register" onclick="switchTab('register')">Cadastrar</button>
+            </div>
+
+            
+            <div id="alert-box" class="alert hidden"></div>
+
+            
+            <form id="login-form" class="auth-form active">
+                <h2>Bem-vindo de volta</h2>
+                <p class="subtitle">Insira suas informações para acessar sua conta.</p>
+
+                <div class="input-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" placeholder="exemplo@gmail.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="login-password">Senha</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="login-password" placeholder="••••••••" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('login-password', this)">Mostrar</button>
+                    </div>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember-me"> Lembrar de mim
+                    </label>
+                    <a href="#" class="forgot-link" onclick="forgotPassword(event)">Esqueceu sua senha?</a>
+                </div>
+
+                <button type="submit" class="btn-primary">Entrar</button>
+            </form>
+
+        
+            <form id="register-form" class="auth-form hidden">
+                <h2>Criar nova conta</h2>
+                <p class="subtitle">Preencha os dados abaixo para poder se registrar.</p>
+
+                <div class="input-group">
+                    <label for="reg-name">Nome completo</label>
+                    <input type="text" id="reg-name" placeholder="Ex: João Silva" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="reg-email">E-mail</label>
+                    <input type="email" id="reg-email" placeholder="exemplo@gmail.com" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="reg-password">Senha (mín. 8 caracteres)</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="reg-password" placeholder="Crie sua senha" minlength="6" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('reg-password', this)">Mostrar</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="reg-confirm">Confirmar senha</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="reg-confirm" placeholder="Repita a senha" minlength="6" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('reg-confirm', this)">Mostrar</button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary">Criar Conta</button>
+            </form>
+
+        </div>
+
+        
+        <div class="dashboard-card hidden" id="dashboard-box">
+            <h2>Acesso Liberado!</h2>
+            <p>Olá, <strong id="user-display-name">Usuário</strong> (<span id="user-display-email"></span>).</p>
+            <p class="subtitle">Você está conectado e pronto para usar as funcionalidades do sistema.</p>
+            <button class="btn-secondary" onclick="logout()">Sair da conta</button>
+        </div>
+
+        
+        <footer class="footer">
+            <p>&copy; 2026 FrTech. Todos os direitos reservados.</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
